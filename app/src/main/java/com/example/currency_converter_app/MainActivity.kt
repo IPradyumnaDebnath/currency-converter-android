@@ -5,7 +5,6 @@ import android.os.Handler
 import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.widget.AdapterView
@@ -14,7 +13,6 @@ import android.widget.EditText
 import android.widget.Spinner
 import com.google.gson.Gson
 import java.io.InputStream
-import kotlin.time.times
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     private val handler = Handler(Looper.getMainLooper())
 
     private lateinit var exchangeRatesResponse: ExchangeRatesResponse
-    private lateinit var allCurrencies:MutableList<String>
+    private lateinit var allCurrencies: MutableList<String>
 
     private lateinit var currencyFromSpinnerAdapter: ArrayAdapter<String>
     private lateinit var currencyFromSpinner: Spinner
@@ -145,8 +143,6 @@ class MainActivity : AppCompatActivity() {
     private fun fetchExchangeRates(
         fromCurrency: String, toCurrency: String, amount: Double, textFieldToUpdate: EditText
     ) {
-
-        Log.d("test exchangeRa", exchangeRatesResponse.toString())
         val defaultNumberValue = 1
         val fromRate: Double =
             exchangeRatesResponse.rates[fromCurrency] ?: defaultNumberValue.toDouble()
